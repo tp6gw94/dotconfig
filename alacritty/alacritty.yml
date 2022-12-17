@@ -1,0 +1,32 @@
+live_config_reload: true
+tabspaces: 4
+window.opacity: 0.9
+
+import:
+  - ~/.alacritty-colorscheme/themes/nord.yaml
+
+shell:
+  program: /usr/local/bin/fish
+
+window:
+  padding:
+    x: 10
+
+font:
+  size: 14
+  normal:
+    family: 'FiraCode Nerd Font'
+    style: Regular
+  bold:
+    family: 'FiraCode Nerd Font'
+    style: Bold 
+  Italic:
+    family: 'FiraCode Nerd Font'
+    style: Italic 
+  bold_{i}talic:
+    family: 'FiraCode Nerd Font'
+    style: Regular
+
+use_thin_strokes: true
+
+# key_bindings:

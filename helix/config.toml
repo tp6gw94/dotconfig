@@ -1,0 +1,38 @@
+theme = "nord"
+
+[editor]
+scrolloff = 8
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics","selections","position","file-type"]
+
+[editor.lsp]
+display-messages = true
+
+[editor.indent-guides]
+render = true
+
+[editor.file-picker]
+hidden=false
+
+[keys.normal]
+space = {c = ":bc"}
+C-h= ["jump_view_left"]
+C-j = ["jump_view_down"]
+C-k = ["jump_view_up"]
+C-l = ["jump_view_right"]
+S-k = ["hover"]
+
+[keys.insert]
+C-s = ["normal_mode", ":w"]
+j = {k = 'normal_mode'}
+"C-space" = "completion"
+
