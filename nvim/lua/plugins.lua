@@ -150,4 +150,5 @@ return require("packer").startup(function(use)
     "mg979/vim-visual-multi",
   })
   use("tpope/vim-fugitive")
+  use("jxnblk/vim-mdx-js")
 end)
