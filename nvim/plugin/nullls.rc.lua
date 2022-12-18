@@ -8,7 +8,7 @@ null_ls.setup({
   sources = {
     formatting.prettier.with({ extra_args = { "--single-quote" } }),
     formatting.stylua,
-    completion.spell,
+    -- completion.spell,
     diagnostics.codespell,
   },
   on_attach = function(client, bufnr)

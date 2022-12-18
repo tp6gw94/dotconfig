@@ -146,4 +146,8 @@ return require("packer").startup(function(use)
       vim.api.nvim_command("augroup END")
     end,
   })
+  use({
+    "mg979/vim-visual-multi",
+  })
+  use("tpope/vim-fugitive")
 end)
