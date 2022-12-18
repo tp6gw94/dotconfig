@@ -1,11 +1,25 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
+keybinds clear-defaults=true{
     normal {
         // uncomment this and adjust key if using copy_on_select=false
-        // bind "Alt c" { Copy; }
+        // bind "Ctrl c" { Copy; }
+        
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt l" { MoveFocus "Right"; }
+        bind "Alt j"  { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt 1" { GoToTab 1;  }
+        bind "Alt 2" { GoToTab 2;  }
+        bind "Alt 3" { GoToTab 3;  }
+        bind "Alt 4" { GoToTab 4;  }
+        bind "Alt 5" { GoToTab 5;  }
+        bind "Alt 6" { GoToTab 6;  }
+        bind "Alt 7" { GoToTab 7;  }
+        bind "Alt 8" { GoToTab 8;  }
+        bind "Alt 9" { GoToTab 9;  }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -72,7 +86,7 @@ keybinds {
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         // uncomment this and adjust key if using copy_on_select=false
-        // bind "Alt c" { Copy; }
+        // bind "Ctrl c" { Copy; }
     }
     search {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -130,13 +144,13 @@ keybinds {
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
-        bind "Alt n" { NewPane; }
-        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
-        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
-        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
-        bind "Alt =" "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
+        bind "Ctrl n" { NewPane; }
+        bind "Ctrl h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Ctrl l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Ctrl j" "Alt Down" { MoveFocus "Down"; }
+        bind "Ctrl k" "Alt Up" { MoveFocus "Up"; }
+        bind "Ctrl =" "Alt +" { Resize "Increase"; }
+        bind "Ctrl -" { Resize "Decrease"; }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Space" "Esc" { SwitchToMode "Normal"; }
