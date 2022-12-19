@@ -20,6 +20,7 @@ keybinds clear-defaults=true{
         bind "Alt 7" { GoToTab 7;  }
         bind "Alt 8" { GoToTab 8;  }
         bind "Alt 9" { GoToTab 9;  }
+        bind "Alt z" {ToggleFocusFullscreen;}
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
