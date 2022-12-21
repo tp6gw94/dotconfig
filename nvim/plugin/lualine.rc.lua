@@ -1,3 +1,3 @@
-require('lualine').setup({
-  options = {themes = "nord"}
+require("lualine").setup({
+  options = { themes = "tokyonight" },
 })

@@ -51,3 +51,7 @@ bind("n", "<C-e>", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', opt
 bind("n", "<C-m>", '<cmd>lua require("harpoon.mark").add_file()<cr>', opts)
 bind("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
 bind("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
+
+bind("n", "<leader>d", '"_d', opts)
+bind("v", "<leader>d", '"_d', opts)
+bind("v", "<leader>p", '"_dP', opts)
