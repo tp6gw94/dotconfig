@@ -151,4 +151,21 @@ return require("packer").startup(function(use)
   })
   use("tpope/vim-fugitive")
   use("jxnblk/vim-mdx-js")
+  use({
+    "zbirenbaum/copilot.lua",
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  })
+  use({
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  })
+  use({ "folke/tokyonight.nvim" })
 end)
