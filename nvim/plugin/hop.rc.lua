@@ -1,18 +1,26 @@
 local hop = require("hop")
 local directions = require("hop.hint").HintDirection
 
-vim.keymap.set("n", "<leader>hc", function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
+vim.keymap.set("", "f", function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
 end, { remap = true })
 
-vim.keymap.set("n", "<leader>hw", function()
+vim.keymap.set("", "F", function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+end, { remap = true })
+
+vim.keymap.set("", "t", function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+end, { remap = true })
+
+vim.keymap.set("", "T", function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = -1 })
+end, { remap = true })
+
+vim.keymap.set("", "<leader>w", function()
   hop.hint_words({ direction = directions.AFTER_CURSOR, current_line_only = false })
-end, { remap = true })
+end, { remap = false })
 
-vim.keymap.set("v", "<leader>hc", function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false })
-end, { remap = true })
-
-vim.keymap.set("v", "<leader>hw", function()
-  hop.hint_words({ direction = directions.AFTER_CURSOR, current_line_only = false })
-end, { remap = true })
+vim.keymap.set("", "<leader>W", function()
+  hop.hint_words({ direction = directions.BEFORE_CURSOR, current_line_only = false })
+end, { remap = false })
