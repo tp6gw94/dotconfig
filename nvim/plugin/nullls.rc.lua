@@ -6,7 +6,18 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
   sources = {
-    formatting.prettier.with({ extra_args = { "--single-quote" } }),
+    formatting.prettier.with({
+      extra_args = { "--single-quote" },
+      filetypes = {
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "graphql",
+        "json",
+        "typescriptreact",
+        "javascriptreact",
+      },
+    }),
     formatting.stylua,
     -- completion.spell,
     diagnostics.codespell,
