@@ -168,4 +168,12 @@ return require("packer").startup(function(use)
     end,
   })
   use({ "folke/tokyonight.nvim" })
+  use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    config = function()
+      require("toggleterm").setup()
+    end,
+  })
 end)
