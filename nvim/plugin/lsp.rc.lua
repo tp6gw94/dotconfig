@@ -16,6 +16,7 @@ lsp.set_preferences({
 })
 lsp.nvim_workspace()
 lsp.on_attach(function(client, bufnr) end)
+
 local cmp = require("cmp")
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-Space>"] = cmp.mapping.complete(),
@@ -23,6 +24,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<Tab>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
 })
 local compare = cmp.config.compare
+
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
   sources = {
