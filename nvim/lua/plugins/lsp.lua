@@ -18,6 +18,12 @@ return {
 	},
 	-- lspconfig
 	{
+		"jose-elias-alvarez/typescript.nvim",
+		cmd = {
+			"TypescriptAddMissingImports",
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
 		dependencies = {
@@ -80,15 +86,27 @@ return {
 			setup = {
 				-- example to setup with typescript.nvim
 				tsserver = function(_, opts)
-					vim.api.nvim_create_autocmd("LspAttach", {
-						callback = function(args)
-							local buffer = args.buf
-							local client = vim.lsp.get_client_by_id(args.data.client_id)
-							if client.name == "tsserver" then
-							end
-						end,
+					require("utils").on_attach(function(client, buffer)
+						if client.name == "tsserver" then
+							vim.keymap.set(
+								"n",
+								"<leader>lto",
+								"TypescriptOrganizeImports",
+								{ buffer = buffer, desc = "Organize Imports" }
+							)
+							vim.keymap.set(
+								"n",
+								"<leader>ltr",
+								"TypescriptRenameFile",
+								{ desc = "Rename File", buffer = buffer }
+							)
+						end
+					end)
+					require("typescript").setup({
+						disable_commands = false,
+						server = opts,
+						go_to_source_definition = { fallback = true },
 					})
-					require("typescript").setup({ server = opts })
 					return true
 				end,
 				-- Specify * to use this function as a fallback for any server
@@ -118,20 +136,21 @@ return {
 					require("lspconfig")[server].setup(server_opts)
 				end,
 			})
+			require("typescript").setup({})
 		end,
 	},
 
 	-- formatters
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		event = "BufReadPre",
 		dependencies = { "williamboman/mason.nvim", "jose-elias-alvarez/typescript.nvim" },
+		event = "BufReadPre",
 		opts = function()
 			local nls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			return {
 				sources = {
-					nls.builtins.formatting.prettierd.with({
+					nls.builtins.formatting.prettier.with({
 						extra_args = { "--single-quote" },
 						filetypes = {
 							"javascript",
