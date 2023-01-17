@@ -1,13 +1,38 @@
 return {
 	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
+	{
 		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
 		cmd = "Telescope",
 		version = false,
+		opts = function()
+			local actions = require("telescope.actions")
+			return {
+				pickers = {
+					buffers = {
+						mappings = {
+							i = {
+								["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+							},
+						},
+					},
+				},
+			}
+		end,
 		keys = {
-			{ "<leader>f", "<cmd>Telescope find_files<cr>", "Find Files" },
+			{ "<leader>f", "<cmd>Telescope find_files hidden=true<cr>", "Find Files" },
 			{ "<C-e>", "<cmd>Telescope buffers show_all_buffers=true<cr>", "Buffers" },
 			{ "<leader>lg", "<cmd>Telescope live_grep<cr>", "Grep" },
 		},
+		config = function(_, opts)
+			require("telescope").setup(opts)
+			require("telescope").load_extension("fzf")
+		end,
 	},
 	{
 		"echasnovski/mini.bufremove",
