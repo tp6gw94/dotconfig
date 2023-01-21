@@ -110,7 +110,6 @@ return {
 					return true
 				end,
 				-- Specify * to use this function as a fallback for any server
-				-- ["*"] = function(server, opts) end,
 			},
 		},
 		---@param opts PluginLspOpts
@@ -217,8 +216,8 @@ return {
 		cmd = { "TroubleToggle", "Trouble" },
 		opts = { use_diagnostic_signs = true },
 		keys = {
-			{ "<leader>t", "<cmd>TroubleToggle document_diagostics<cr>", desc = "Document Diagostics" },
-			{ "<leader>T", "<cmd>TroubleToggle workspace_diagostics<cr>", desc = "Document Diagostics" },
+			{ "<leader>t", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagostics" },
+			{ "<leader>T", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Document Diagostics" },
 		},
 	},
 }
