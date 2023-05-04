@@ -22,6 +22,14 @@ return {
 		cmd = {
 			"TypescriptAddMissingImports",
 		},
+		-- keys = {
+		-- 	{
+		-- 		"<leader>ltr",
+		-- 		function()
+		-- 			require("typescript").renameFile()
+		-- 		end,
+		-- 	},
+		-- },
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -88,25 +96,13 @@ return {
 				tsserver = function(_, opts)
 					require("utils").on_attach(function(client, buffer)
 						if client.name == "tsserver" then
-							vim.keymap.set(
-								"n",
-								"<leader>lto",
-								"TypescriptOrganizeImports",
-								{ buffer = buffer, desc = "Organize Imports" }
-							)
-							vim.keymap.set(
-								"n",
-								"<leader>ltr",
-								"TypescriptRenameFile",
-								{ desc = "Rename File", buffer = buffer }
-							)
+							require("typescript").setup({
+								disable_commands = false,
+								server = opts,
+								go_to_source_definition = { fallback = true },
+							})
 						end
 					end)
-					require("typescript").setup({
-						disable_commands = false,
-						server = opts,
-						go_to_source_definition = { fallback = true },
-					})
 					return true
 				end,
 				-- Specify * to use this function as a fallback for any server
@@ -123,20 +119,22 @@ return {
 				function(server)
 					local server_opts = servers[server] or {}
 					server_opts.capabilities = capabilities
-					if opts.setup[server] then
-						if opts.setup[server](server, server_opts) then
-							return
-						end
-					elseif opts.setup["*"] then
-						if opts.setup["*"](server, server_opts) then
-							return
-						end
-					end
+					-- if opts.setup[server] then
+					-- 	if opts.setup[server](server, server_opts) then
+					-- 		return
+					-- 	end
+					-- elseif opts.setup["*"] then
+					-- 	if opts.setup["*"](server, server_opts) then
+					-- 		return
+					-- 	end
+					-- end
 					require("lspconfig")[server].setup(server_opts)
 				end,
 			})
-			require("typescript").setup({})
 		end,
+		keys = {
+			{ "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+		},
 	},
 
 	-- formatters
@@ -163,6 +161,8 @@ return {
 					}),
 					nls.builtins.formatting.stylua,
 					nls.builtins.diagnostics.flake8,
+					nls.builtins.formatting.autopep8,
+					nls.builtins.formatting.autoflake,
 					require("typescript.extensions.null-ls.code-actions"),
 				},
 				on_attach = function(client, bufnr)

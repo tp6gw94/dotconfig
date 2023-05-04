@@ -163,6 +163,13 @@ return {
 	},
 	{
 		"windwp/nvim-spectre",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = {
+			live_update = true,
+		},
 		keys = {
 			{
 				"<leader>r",
