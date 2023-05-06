@@ -17,3 +17,8 @@ map("n", "<S-l>", "$")
 map("n", "<S-h>", "_")
 map("v", "<S-l>", "$")
 map("v", "<S-h>", "_")
+
+map("i", "<C-c>", function()
+  return vim.fn["codeium#Clear"]()
+end, { expr = false })
+map("i", "<C-c>", "<Esc>", { expr = false })

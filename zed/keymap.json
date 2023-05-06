@@ -1,0 +1,8 @@
+[
+    {
+        "context": "Editor && vim_operator == g",
+        "bindings": {
+            "d": "editor::GoToDefinition"
+        }
+    }
+]
