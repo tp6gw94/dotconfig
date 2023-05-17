@@ -28,6 +28,12 @@ return {
       {
         "windwp/nvim-ts-autotag",
       },
+      {
+        "kevinhwang91/nvim-ufo",
+        dependencies = {
+          "kevinhwang91/promise-async",
+        },
+      },
     },
     keys = {
       { "<c-space>", desc = "Increment selection" },
@@ -86,6 +92,11 @@ return {
         end, opts.ensure_installed)
       end
       require("nvim-treesitter.configs").setup(opts)
+      require("ufo").setup({
+        provider_selector = function(bufnr, filetype, buftype)
+          return { "treesitter", "indent" }
+        end,
+      })
     end,
   },
   {
