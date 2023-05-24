@@ -111,22 +111,23 @@ return {
       end,
     },
     opts = {
-      history = true,
+      history = false,
       region_check_events = "InsertEnter",
       delete_check_events = "InsertLeave",
     },
-  -- stylua: ignore
-  keys = {
-    {
-      "<tab>",
-      function()
-        return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-      end,
-      expr = true, silent = true, mode = "i",
+    -- stylua: ignore
+    keys = {
+      {
+        "<tab>",
+        function()
+          -- return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+          return "<tab>"
+        end,
+        expr = true, silent = true, mode = "i",
+      },
+      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
-    { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-    { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
-  },
   },
   {
     "hrsh7th/nvim-cmp",
@@ -208,23 +209,6 @@ return {
       }
     end,
   },
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   config = function()
-  --     vim.keymap.set("i", "<C-g>", function()
-  --       return vim.fn["codeium#Accept"]()
-  --     end, { expr = true })
-  --     vim.keymap.set("i", "<c-;>", function()
-  --       return vim.fn["codeium#CycleCompletions"](1)
-  --     end, { expr = true })
-  --     vim.keymap.set("i", "<c-,>", function()
-  --       return vim.fn["codeium#CycleCompletions"](-1)
-  --     end, { expr = true })
-  --     vim.keymap.set("i", "<c-x>", function()
-  --       return vim.fn["codeium#Clear"]()
-  --     end, { expr = true })
-  --   end,
-  -- },
   {
     "jcdickinson/codeium.nvim",
     dependencies = {
