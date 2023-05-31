@@ -67,6 +67,7 @@ return {
         "vimdoc",
         "yaml",
         "graphql",
+        "rust",
       },
       incremental_selection = {
         enable = true,

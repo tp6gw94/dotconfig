@@ -29,4 +29,16 @@ return {
       },
     },
   },
+  {
+    "akinsho/bufferline.nvim",
+    keys = {
+      { "gb", "<Cmd>BufferLinePick<CR>", desc = "Pick Buffer" },
+    },
+    opts = {
+      options = {
+        style_preset = require("bufferline").style_preset.minimal,
+        separator_style = "thin",
+      },
+    },
+  },
 }

@@ -18,6 +18,7 @@ return {
       keys[#keys + 1] = { "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostics" }
       keys[#keys + 1] = { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" }
       keys[#keys + 1] = { "gd", "<cmd>Lspsaga lsp_finder<CR>", desc = "LSP Finder" }
+      vim.keymap.set("n", "<leader>wt", "<cmd>Lspsaga term_toggle<CR>", { desc = "Float Terminal" })
     end,
     config = function()
       require("lspsaga").setup({

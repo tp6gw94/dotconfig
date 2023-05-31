@@ -29,4 +29,10 @@ return {
       vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
     end,
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+    },
+  },
 }
