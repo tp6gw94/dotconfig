@@ -31,14 +31,29 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    keys = {
-      { "gb", "<Cmd>BufferLinePick<CR>", desc = "Pick Buffer" },
-    },
-    opts = {
-      options = {
-        style_preset = require("bufferline").style_preset.minimal,
-        separator_style = "thin",
-      },
-    },
+    enabled = false,
   },
+  -- {
+  --
+  --   "romgrk/barbar.nvim",
+  --   event = "BufEnter",
+  --   dependencies = {
+  --     "lewis6991/gitsigns.nvim",
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  --   init = function() end,
+  --   opts = {
+  --     sidebar_filetypes = {
+  --       ["neo-tree"] = { event = "BufWipeout" },
+  --     },
+  --   },
+  --   keys = {
+  --     { "<tab><tab>", "<Cmd>BufferPick<CR>", desc = "Pick Buffer" },
+  --     { "<tab>p", "<Cmd>BufrerPin<CR>", desc = "Buffer Pin" },
+  --     { "[b", "<Cmd>BufferPrevious<CR>", desc = "Buffer Previous" },
+  --     { "]b", "<Cmd>BufferNext<CR>", desc = "Buffer Next" },
+  --     { "<leader>br", "<Cmd>BufferScrollRight<CR>", desc = "Buffer Scroll Right" },
+  --     { "<leader>bl", "<Cmd>BufferScrollLeft<CR>", desc = "Buffer Scroll Left" },
+  --   },
+  -- },
 }

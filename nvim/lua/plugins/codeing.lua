@@ -139,6 +139,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
+      { dir = "/Users/todd/workspace/cmp_classname" },
     },
     opts = function()
       local cmp = require("cmp")
@@ -164,7 +165,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "buffer" },
+          { name = "buffer", keyword_length = 3 },
           { name = "path" },
           { name = "codeium" },
         }),
@@ -203,6 +204,7 @@ return {
             diagnostics_postprocess = function(diagnostic)
               diagnostic.severity = vim.diagnostic.severity.HINT
             end,
+            disabled_filetypes = { "harpoon" },
           }),
           nls.builtins.code_actions.cspell,
           -- nls.builtins.diagnostics.flake8,

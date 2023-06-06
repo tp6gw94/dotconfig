@@ -13,11 +13,13 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<S-l>", "$")
-map("n", "<S-h>", "_")
-map("v", "<S-l>", "$")
-map("v", "<S-h>", "_")
+map({ "n", "v" }, "<S-l>", "$")
+map({ "n", "v" }, "<S-h>", "_")
 map({ "n", "v" }, "<C-u>", "<C-u>zz")
 map({ "n", "v" }, "<C-d>", "<C-d>zz")
 map("n", "<S-g>", "<S-g>zz")
 map("n", "<C-i>", "<C-i>")
+map("v", "<leader>p", '"0p', { desc = "paste without yank" })
+map("v", "<leader>d", '"_d', { desc = "delete without yank" })
+map("n", "<C-o>", "<C-o>zz")
+map("n", "<C-i>", "<C-i>zz")

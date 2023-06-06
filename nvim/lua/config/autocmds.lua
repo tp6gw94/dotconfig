@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(event)
     local set = vim.keymap.set
     local ui = require("harpoon.ui")
+
     for i = 1, 9 do
       set("n", tostring(i), function()
         ui.nav_file(i)
@@ -21,3 +22,40 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = augroup("harpoon_buffer_mark"),
+  callback = function(event)
+    local mark = require("harpoon.mark")
+    local curr_harpoon_idx = mark.get_current_index()
+    local new_list = {}
+
+    if curr_harpoon_idx == nil then
+      table.insert(new_list, 1, event.file)
+    else
+      table.insert(new_list, 1, mark.get_marked_file_name(curr_harpoon_idx))
+    end
+
+    for i = 1, mark.get_length() do
+      if curr_harpoon_idx ~= i then
+        table.insert(new_list, mark.get_marked_file_name(i))
+      end
+    end
+
+    mark.set_mark_list(new_list)
+
+    if mark.get_length() > 9 then
+      mark.rm_file(mark.get_marked_file_name(10))
+    end
+  end,
+})
+
+-- vim.api.nvim_create_autocmd("BufDelete", {
+--   group = augroup("harpoon_buffer_delete"),
+--   callback = function(event)
+--     local mark = require("harpoon.mark")
+--     if mark.get_marked_file(event.file) ~= nil then
+--       mark.rm_file(event.file)
+--     end
+--   end,
+-- })
