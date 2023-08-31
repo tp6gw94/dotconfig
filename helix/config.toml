@@ -1,39 +1,33 @@
-theme = "nord"
+theme="onedark"
 
 [editor]
-scrolloff = 8
-cursorline = true
+line-number="relative"
+cursorline=true
 
 [editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
-
-[editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
-right = ["diagnostics","selections","position","file-type"]
+insert="bar"
+normal="block"
 
 [editor.lsp]
-display-messages = true
+display-inlay-hints=true
+
+[editor.whitespace.render]
+space="none"
+tab="all"
+newline="none"
+
+[editor.whitespace.characters]
+space = "·"
+tab = "→"
 
 [editor.indent-guides]
-render = true
-
-[editor.file-picker]
-hidden=false
+render=true
+skip-levels = 1
 
 [keys.normal]
-space = {c = ":bc"}
-C-h= ["jump_view_left"]
-C-j = ["jump_view_down"]
-C-k = ["jump_view_up"]
-C-l = ["jump_view_right"]
-S-k = ["hover"]
-g = {c="toggle_comments"}
-
+space={c = {r = "rename_symbol", a = "code_action" }}
+"K"="hover"
 
 [keys.insert]
-"C-space" = "completion"
-"C-c" = "normal_mode"
-
+j = {k="normal_mode"}
+"C-space"="completion"

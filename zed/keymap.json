@@ -1,8 +1,20 @@
 [
-    {
-        "context": "Editor && vim_operator == g",
-        "bindings": {
-            "d": "editor::GoToDefinition"
-        }
+  {
+    "context": "Editor && vim_operator == g",
+    "bindings": {
+      "d": "editor::GoToDefinition",
+      "D": "editor::GoToTypeDefinition",
+      "a": "editor::ToggleCodeActions",
+      "R": "editor::FindAllReferences",
+      "r": "editor::Rename"
     }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "shift-h": "vim::FirstNonWhitespace",
+      "shift-l": "vim::EndOfLine",
+      "shift-k": "editor::Hover"
+    }
+  }
 ]

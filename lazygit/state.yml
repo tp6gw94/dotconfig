@@ -1,8 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/todd/.config
-- /Users/todd/.config/nvim
-- /Users/todd/workspace/iot885-frond-end
+    - /Users/todd/.config
+    - /Users/todd/workspace/iot885-frond-end
+    - /Users/todd/workspace/ifmcs-barcode-scanner
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+    - q
 hidecommandlog: false

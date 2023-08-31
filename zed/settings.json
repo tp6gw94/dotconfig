@@ -7,21 +7,31 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-    "theme": "One Dark",
-    "buffer_font_size": 15,
-    "vim_mode": true,
-    "language_overrides": {
-        "JavaScript": {
-            "format_on_save": {
-                "external": {
-                    "command": "prettier",
-                    "arguments": [
-                        "--single-quote",
-                        "--stdin-filepath",
-                        "{buffer_path}"
-                    ]
-                }
-            }
+  "base_keymap": "VSCode",
+  "theme": "Solarized Light",
+  "buffer_font_size": 15,
+  "vim_mode": true,
+  "inlay_hints": {
+    "enabled": true,
+    "show_other_hints": true,
+    "show_parameter_hints": true,
+    "show_type_hints": true
+  },
+  "shell": {
+    "program": "fish"
+  },
+  "language_overrides": {
+    "JavaScript": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--single-quote",
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
         }
+      }
     }
+  }
 }

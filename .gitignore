@@ -5,3 +5,5 @@ configstore
 gptcommit
 simple-updatenotifier
 flutter
+configstore/update-notifier-@aws-amplify
+fish/secret.fish

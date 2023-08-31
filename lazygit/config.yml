@@ -1,4 +1,4 @@
 gui:
-  language: "zh"
+  # language: "zh"
   showIcons: true
 confirmOnQuit: true
