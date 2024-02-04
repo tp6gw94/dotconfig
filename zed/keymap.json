@@ -1,17 +1,15 @@
 [
   {
-    "context": "Editor && vim_operator == g",
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
-      "d": "editor::GoToDefinition",
-      "D": "editor::GoToTypeDefinition",
-      "a": "editor::ToggleCodeActions",
-      "R": "editor::FindAllReferences",
-      "r": "editor::Rename"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == normal",
-    "bindings": {
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space o": "outline::Toggle",
+      "space /": "pane::SplitLeft",
+      "space _": "pane::SplitDown",
+      "g r": "editor::FindAllReferences",
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToTypeDefinition",
       "shift-h": "vim::FirstNonWhitespace",
       "shift-l": "vim::EndOfLine",
       "shift-k": "editor::Hover"
