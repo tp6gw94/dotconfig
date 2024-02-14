@@ -21,12 +21,7 @@
   "shell": {
     "program": "fish"
   },
-  "formatter": {
-    "external": {
-      "command": "node_modules/.bin/prettier",
-      "arguments": ["--stdin-filepath","{buffer_path}"]
-    }
-  },
+  "formatter": "prettier",
   "lsp": {
     "typescript-language-server": {
       "initialization_options": {
@@ -42,7 +37,5 @@
         }
       }
     }
-  },
-  "language_overrides": {
   }
 }
